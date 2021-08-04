@@ -65,6 +65,7 @@ alias youtube-dlc="nvim ~/.config/youtube-dl/config"
 # working directories
 alias doc="~/Documents"
 alias dl="~/Downloads"
+alias .config="~/.config"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
 alias ls="exa --grid --color auto --icons --sort=type --git" 
@@ -110,6 +111,16 @@ key(){
      else 
    	v ~/Hotkeys/$1*
      fi
+}
+lvim_uninstall() {
+rm -rf ~/.local/share/lunarvim
+
+sudo rm /usr/local/bin/lvim
+
+rm -rf ~/.local/share/applications/lvim.desktop
+}
+lvim_install(){
+bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 }
 
 
