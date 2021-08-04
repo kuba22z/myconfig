@@ -66,6 +66,8 @@ alias nvimc="cd ~/.config/nvim/"
 #alias doc="~/Documents"
 #alias dl="~/Downloads"
 alias .config="~/.config"
+alias naum=cd "/mnt/c/Users/naum"
+alias mtsm=cd "/mnt/c/Users/naum/Documents/workspace/mtsm"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
 #alias ls="exa --grid --color auto --icons --sort=type --git" 
