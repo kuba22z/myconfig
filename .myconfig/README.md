@@ -24,34 +24,46 @@ git remote add <name> <url>
 
 ### installing
 ```bat
-ping 192.168.0.1
+sudo apt-get update
 ```
 #### zsh
 ```bat
-ping 192.168.0.1
+sudo apt-get install zsh
 ```
 #### ohmyzsh
 ```bat
-ping 192.168.0.1
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 #### nvim
 ```bat
-ping 192.168.0.1
+sudo apt install neovim
 ```
 #### powerlevel10k
 ```bat
-ping 192.168.0.1
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 #### nerdfonts
 ```bat
-ping 192.168.0.1
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 ```
 #### pulgins
 ```bat
-ping 192.168.0.1
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
 ```
 #### usefull commands
 ```bat
-ping 192.168.0.1
+sudo apt install xdg-utils curl wget git
+sudo apt-get install zip
+#exa
+sudo wget -P /usr/local/bin https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip && cd /usr/local/bin
+sudo unzip exa-linux-x86_64-v0.10.0.zip 
+sudo mv man /usr/share/man/man1 
+sudo mv completions /usr/local/share/zsh/site-functions
+sudo mv bin/exa ./
+sudo rm exa-linux-x86_64-v0.10.0.zip
 ```
+more details on https://the.exa.website/install/linux#manual
 
