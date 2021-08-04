@@ -50,34 +50,35 @@ POWERLEVEL10K_MODE="nerdfont-complete"
 # My aliases
 
 # open IDE's
-alias i="/snap/intellij-idea-ultimate/current/bin/idea.sh"
-alias c="/snap/clion/current/bin/clion.sh"
-alias p="/snap/pycharm-professional/current/bin/pycharm.sh"
-alias ana="conda activate 
-anaconda-navigator"
+#alias i="/snap/intellij-idea-ultimate/current/bin/idea.sh"
+#alias c="/snap/clion/current/bin/clion.sh"
+#alias p="/snap/pycharm-professional/current/bin/pycharm.sh"
+#alias ana="conda activate 
+#anaconda-navigator"
 
 # config files
 alias zshc="nvim ~/.zshrc"
 alias zshu="source ~/.zshrc"
 alias nvimc="cd ~/.config/nvim/"
-alias youtube-dlc="nvim ~/.config/youtube-dl/config"
+#alias youtube-dlc="nvim ~/.config/youtube-dl/config"
 
 # working directories
-alias doc="~/Documents"
-alias dl="~/Downloads"
+#alias doc="~/Documents"
+#alias dl="~/Downloads"
 alias .config="~/.config"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
-alias ls="exa --grid --color auto --icons --sort=type --git" 
+#alias ls="exa --grid --color auto --icons --sort=type --git" 
+alias ls='ls --color=auto'
 alias o="xdg-open"
 alias v="nvim"
-alias gsm="gnome-system-monitor"
+#alias gsm="gnome-system-monitor"
 alias tp='trash-put'
-alias rbox='rhythmbox'
+#alias rbox='rhythmbox'
 #download a youtube video
-alias youtube-dl="~/.local/bin/youtube-dl"
+#alias youtube-dl="~/.local/bin/youtube-dl"
 # download youtube video as mp3, duplicate downloaded videos are disallowed
-alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archive '~/Music/downloaded.txt' --no-post-overwrites -ciwx --extract-audio --audio-format mp3"
+#alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archive '~/Music/downloaded.txt' --no-post-overwrites -ciwx --extract-audio --audio-format mp3"
 # connect bluetooth to my headphone Doqaus
 alias condoqaus='bluetoothctl connect 22:22:22:88:4B:22'
 # this alias I used instead of the regular git when we want to interact with our configuration repository.
@@ -105,13 +106,13 @@ beam()
     fi
 }
 #open key files
-key(){
-     if [ -z "$1"]; then
-	cd ~/Hotkeys
-     else 
-   	v ~/Hotkeys/$1*
-     fi
-}
+#key(){
+     #if [ -z "$1"]; then
+	#cd ~/Hotkeys
+     #else 
+           #v ~/Hotkeys/$1*
+     #fi
+#}
 lvim_uninstall() {
 rm -rf ~/.local/share/lunarvim
 
