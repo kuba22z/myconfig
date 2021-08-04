@@ -72,6 +72,8 @@ alias mtsm=cd "/mnt/c/Users/naum/Documents/workspace/mtsm"
 #overwrite ls with a modern ls "exa", it provides icons for files
 #alias ls="exa --grid --color auto --icons --sort=type --git" 
 alias ls='ls --color=auto'
+alias l="exa --grid --color auto -l --sort=type --git"
+
 alias o="xdg-open"
 alias v="nvim"
 #alias gsm="gnome-system-monitor"
