@@ -6,6 +6,6 @@
 - more details on (https://www.atlassian.com/git/tutorials/dotfiles)
 
 ### Contains my config files for linux
--zsh (.zshrc)
--bash (.bashrc)
+- zsh (.zshrc)
+- bash (.bashrc)
 
