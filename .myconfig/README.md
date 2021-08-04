@@ -5,6 +5,17 @@
 - use alias "config" so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
 - more details on (https://www.atlassian.com/git/tutorials/dotfiles)
 
+### Set up bare Git repository for config files
+```bat
+# create a bare repo
+git init --bare $HOME/.myconfig
+config config --local status.showUntrackedFiles no
+# write the alias config to a shell config file, this alias acts like git  
+echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.bashrc
+# connect your repo to github.com
+git remote add <name> <url>
+```
+
 ### Contains my config files for linux
 - zsh (~/.zshrc)
 - bash (~/.bashrc)
@@ -15,19 +26,19 @@
 ```bat
 ping 192.168.0.1
 ```
-#### install zsh
+#### zsh
 ```bat
 ping 192.168.0.1
 ```
-#### install ohmyzsh
+#### ohmyzsh
 ```bat
 ping 192.168.0.1
 ```
-#### install nvim
+#### nvim
 ```bat
 ping 192.168.0.1
 ```
-#### install powerlevel10k
+#### powerlevel10k
 ```bat
 ping 192.168.0.1
 ```
@@ -36,6 +47,10 @@ ping 192.168.0.1
 ping 192.168.0.1
 ```
 #### pulgins
+```bat
+ping 192.168.0.1
+```
+#### usefull commands
 ```bat
 ping 192.168.0.1
 ```
