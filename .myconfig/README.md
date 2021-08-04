@@ -15,14 +15,28 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" 
 # connect your repo to github.com
 git remote add <name> <url>
 ```
-
+### Install dotfiles onto a new system
+```bat
+# create directory for bare repository
+cd
+mkdir .myconfig
+# clone dotfiles into bare repository 
+ git clone --bare https://github.com/kuba22z/myconfig $HOME/.myconfig
+# Set alias config that acts like git
+alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
+```
+- make sure that you rename/backup/remove all already exisiting dotfiles that are in the repo
+```bat
+# get all dotfiles from the repo
+config checkout
+```
 ### Contains my config files for linux
 - zsh (~/.zshrc)
 - bash (~/.bashrc)
 - nvim (~/.config/nvim)
 - powerlevel10k (~/.p10k.zsh)
 
-### installing
+### Install required programms
 ```bat
 sudo apt-get update
 ```
