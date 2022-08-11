@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
 Plug 'dracula/vim'  "evening theme
+Plug 'mtdl9/vim-log-highlighting' "support for .log files, syntax highlighting
 
 if has("nvim")
 "nvim-lspconfig, is a collection of common configurations for language servers of each language
