@@ -1,7 +1,7 @@
 "config Section
 set number
 set encoding=UTF-8
- 
+set mouse=a
 
 " Imports "{{{
 " ---------------------------------------------------------------------
@@ -10,11 +10,10 @@ if has("unix")
   let s:uname = system("uname -s")
 endif
 
-
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 "
-" 
+"
 " theme by https://github.com/craftzdog/dotfiles-public/blob/master/.config/nvim/init.vim
 "if exists("&termguicolors") && exists("&winblend")
 "  syntax enable
@@ -31,10 +30,9 @@ endif
 
 
 if (has("termguicolors"))
- 	set termguicolors
+        set termguicolors
 endif
 syntax enable
 colorscheme dracula
 
 "}}}
-
