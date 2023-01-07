@@ -9,16 +9,14 @@ fi
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump)
+plugins=(git gitfast zsh-syntax-highlighting zsh-autosuggestions autojump npm sudo web-search aliases jsontools)
+
+# required for autojump
 . /usr/share/autojump/autojump.sh
 
-
-#plugins=(z zsh-autosuggestions)
 
 # User configuration
 
@@ -47,19 +45,19 @@ source $ZSH/oh-my-zsh.sh
 #ZSH_THEME="bira"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL10K_MODE="nerdfont-complete"
+
 # My aliases
 
 # open IDE's
 alias i="/snap/intellij-idea-ultimate/current/bin/idea.sh"
 alias c="/snap/clion/current/bin/clion.sh"
 alias p="/snap/pycharm-professional/current/bin/pycharm.sh"
-alias ana="conda activate 
-anaconda-navigator"
 
 # config files
 alias zshc="nvim ~/.zshrc"
 alias zshu="source ~/.zshrc"
 alias nvimc="cd ~/.config/nvim/"
+alias p10kc="v ~/.p10k.zsh"
 alias youtube-dlc="nvim ~/.config/youtube-dl/config"
 
 # working directories
@@ -82,16 +80,54 @@ alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archi
 alias condoqaus='bluetoothctl connect 22:22:22:88:4B:22'
 # this alias I used instead of the regular git when we want to interact with our configuration repository.
 alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
+alias backup-terminal='dconf dump /org/gnome/terminal/ > ~/.gnome_terminal_settings_backup.txt'
+alias restore-terminal-backup='dconf reset -f /org/gnome/terminal/ && dconf load /org/gnome/terminal/ < ~/.gnome_terminal_settings_backup.txt'
+
+#fh aachen
+
+# compiler bau
+# compiles file with mini-java compiler
+alias mini-javac='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJava-Compiler/miniJavaCompiler.jar <'
+alias mini-java-funProc='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJavaFunProc-Compiler/miniJavaFunProcCompiler.jar <'
+# compile and run with mini java compiler
+run-miniJava(){ mini-javac $1 && java miniJavaFile}
+# compiler and run with mini-java-funcPronc compiler
+run-miniJavaFunProc(){ mini-java-funProc $1 && java miniJavaFunProcFile} 
+# run my parser/compiler on the code in input.txt
+run-parser(){  javacc javacc-config.jj && cat $2 && javac "$1.java" && java $1 < $2 }
+# compile my mini-java code in input.txt, translate it to Java byte code and runs the executable result.class file, $2 is the input File
+run-myJava(){run-parser $1 $2 && java result}
+# kryptologie
+alias aribas="~/aribas165/src/aribas" 
+
 
 # functions
 
 # command and go to it
-mdc(){md $1 && cd $1}
-cpc(){cp $1 $2 && cd $2}
-mvc(){mv $1 $2 && cd $2}
+# ${@: -1} is the last argument, $@ are all arguments
+mdc(){md $@ && cd ${@: -1}}
+cpc(){cp $@ && cd ${@: -1}}
+mvc(){ mv $@ && cd ${@: -1}}
 
-# case sensitive search through whole system for a 
-# certain file and move to his directory 
+# move files to the path that autojump finds
+mvj(){ 
+	pathTo2=$(autojump $2 | awk '{:t$1}');
+	mv $1 $pathTo && echo $pathTo
+}
+# copy files to the path that autojump finds
+# ${@:1:$#-1} are all arguments except the last
+cpj(){ 
+	array=($@)
+	len=${#array[@]}
+	last_arg=${@: -1}
+	all_args_except_last=${array[@]:0:$len-1}
+	
+	pathTo=$(autojump $last_arg | awk '{print$1}') 
+	cp  $pathTo && echo $pathTo
+}
+
+
+# case sensitive search through whole system for a certain file and move to his directory 
 beam() 
 { 
     # -i means case insensitive	
@@ -104,14 +140,17 @@ beam()
         echo "no directory "$ldir;
     fi
 }
-#open key files
-key(){
+
+# open key files
+hotkeys(){
      if [ -z "$1"]; then
 	cd ~/Hotkeys
      else 
    	v ~/Hotkeys/$1*
      fi
 }
+
+
 lvim_uninstall() {
 rm -rf ~/.local/share/lunarvim
 
@@ -122,22 +161,6 @@ rm -rf ~/.local/share/applications/lvim.desktop
 lvim_install(){
 bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 }
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/kuba/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/kuba/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/kuba/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/kuba/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 
 # Set list of themes to pick from when loading at random
@@ -212,8 +235,7 @@ unset __conda_setup
 export PATH=/home/kuba/.config/composer/vendor/bin:$PATH
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

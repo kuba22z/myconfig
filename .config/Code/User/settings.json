@@ -1,0 +1,8 @@
+{
+    "C_Cpp.updateChannel": "Insiders",
+    "terminal.integrated.shell.linux": "bash",
+    "workbench.colorTheme": "Default Dark+",
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+}
