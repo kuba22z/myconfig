@@ -1,7 +1,7 @@
 "config Section
 set number
 set encoding=UTF-8
- 
+set filetype=logreview
 
 " Imports "{{{
 " ---------------------------------------------------------------------
