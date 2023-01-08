@@ -70,6 +70,8 @@ sudo apt-get install autojump
 ```bat
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+#or
+cd ~/.local/share/fonts && curl -fLo "IBM 3270 Nerd Font Complete Mono.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/3270/Regular/complete/IBM%203270%20Nerd%20Font%20Complete%20Mono.otf 
 ```
 - then click on Droid Sans Mono for Powerline Nerd Font Complete.otf
 
