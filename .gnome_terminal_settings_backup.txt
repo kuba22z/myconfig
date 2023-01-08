@@ -1,7 +1,7 @@
 [legacy/keybindings]
 close-tab='<Primary><Alt>w'
 close-window='<Primary><Alt>q'
-copy='<Primary><Alt>c'
+copy='<Primary><Shift>c'
 detach-tab='<Primary>Home'
 find='<Primary>f'
 find-clear='<Primary>j'
@@ -10,7 +10,7 @@ find-previous='<Primary>h'
 new-tab='<Primary>t'
 new-window='<Primary>n'
 next-tab='<Alt>Right'
-paste='<Primary><Alt>v'
+paste='<Primary><Shift>v'
 prev-tab='<Alt>Left'
 select-all='<Primary>a'
 
