@@ -5,7 +5,7 @@
 - use alias "config" so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
 - more details on https://www.atlassian.com/git/tutorials/dotfiles
 
-### Set up bare Git repository for config files
+### Set up new bare Git repository for config files (is not needed before cloning this repo)
 ```bat
 # create a bare repo
 git init --bare $HOME/.myconfig
@@ -14,8 +14,6 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" 
 config config --local status.showUntrackedFiles no
 # connect your repo to github.com
 git remote add <name> <url>
-# For this repo:
-git remote add myconfig https://github.com/kuba22z/myconfig
 ```
 ### Install dotfiles onto a new system
 ```bat
