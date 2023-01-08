@@ -43,7 +43,7 @@ config checkout
 ### Install required commands
 ```bat
 sudo apt-get update
-sudo apt install xdg-utils curl wget git-all
+sudo apt install xdg-utils curl wget git-all ssh
 sudo apt-get install zip locate
 
 ```
