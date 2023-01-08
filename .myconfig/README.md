@@ -87,3 +87,7 @@ sudo rm exa-linux-x86_64-v0.10.0.zip
 - then change the font of your terminal to a nerdfont via terminal gui (doesnt works on windows)
 more details on https://the.exa.website/install/linux#manual
 
+#### restore gnu terminal settings
+```bat
+restore-terminal-backup
+```
