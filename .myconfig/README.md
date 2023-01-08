@@ -9,9 +9,9 @@
 ```bat
 # create a bare repo
 git init --bare $HOME/.myconfig
-config config --local status.showUntrackedFiles no
 # write the alias config to a shell config file, this alias acts like git  
 echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.bashrc
+config config --local status.showUntrackedFiles no
 # connect your repo to github.com
 git remote add <name> <url>
 ```
