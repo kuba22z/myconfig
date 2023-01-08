@@ -12,9 +12,12 @@ Plug 'dracula/vim'  "evening theme
 if has("nvim")
 "nvim-lspconfig, is a collection of common configurations for language servers of each language
 "but you need to set up the language servers for each language you use
-Plug 'neovim/nvim-lspconfig'
-"improve lsp GUI
-Plug 'glepnir/lspsaga.nvim'
+"but cause problems
+" Plug 'neovim/nvim-lspconfig'
+
+"improve lsp GUI 
+"but cause problems
+" Plug 'glepnir/lspsaga.nvim'
 
 Plug 'preservim/nerdcommenter' "an easy way for commenting out lines
 Plug 'scrooloose/nerdtree'   "file explorer for neovim(netrw comes as default for neovim)
