@@ -63,6 +63,7 @@ cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Co
 cd ~/.local/share/fonts && curl -fLo "IBM 3270 Nerd Font Complete Mono.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/3270/Regular/complete/IBM%203270%20Nerd%20Font%20Complete%20Mono.otf 
 ```
 - then click on Droid Sans Mono for Powerline Nerd Font Complete.otf
+- choose your font from https://github.com/ryanoasis/nerd-fonts an install it manually or clone the repo
 
 #### exa
 ```bat
