@@ -44,6 +44,16 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```bat
 sudo apt install neovim
 ```
+#### vim-plug
+- simplifies the installation of plugins in vim/nvim
+```bat
+#install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+#install nvim plugins
+nvim +'PlugInstall --sync' +qa 
+```
+      
 #### powerlevel10k
 ```bat
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
