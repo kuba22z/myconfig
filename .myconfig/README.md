@@ -54,7 +54,10 @@ sudo apt-get install zip locate
 #### zsh
 ```bat
 sudo apt-get install zsh
+#set zsh as default, for root terminal need sudo ... 
+chsh -s $(which zsh)
 ```
+
 #### ohmyzsh
 ```bat
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
