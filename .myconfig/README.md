@@ -1,20 +1,17 @@
 # myconfig
-###  This is a bare Git repository
-- this is a way to store dotfiles
-- The technique consists in storing a Git bare repository in a "side" folder (like $HOME/.myconfig)
-- use alias "config" so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
-- more details on https://www.atlassian.com/git/tutorials/dotfiles
 
-### Set up new bare Git repository for config files (is not needed before cloning this repo)
-```bat
-# create a bare repo
-git init --bare $HOME/.myconfig
-# write the alias config to a shell config file, this alias acts like git  
-echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.bashrc
-config config --local status.showUntrackedFiles no
-# connect your repo to github.com
-git remote add <name> <url>
-```
+### Contains my config files for linux
+- zsh (~/.zshrc)
+- bash (~/.bashrc)
+- nvim (~/.config/nvim)
+- powerlevel10k (~/.p10k.zsh)
+- gnome terminal settings backup (~/.gnome_terminal_settings_backup.txt)
+- git config (~/.gitconfig)
+- InelliJ IDEA settings (~/.config/JetBrains/IntelliJIdea2022.3/settings.zip)
+- vscode backup (~/.config/Code/User/sync)
+
+## Setup
+
 ### Clone my config repo to new system
 - make sure that you rename/backup/remove all already exisiting dotfiles that are in the repo
 ```bat 
@@ -25,16 +22,8 @@ git clone --bare https://github.com/kuba22z/myconfig $HOME/.myconfig
 alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
 # get all dotfiles from the repo
 config checkout
+config config --local status.showUntrackedFiles no
 ```
-### Contains my config files for linux
-- zsh (~/.zshrc)
-- bash (~/.bashrc)
-- nvim (~/.config/nvim)
-- powerlevel10k (~/.p10k.zsh)
-- gnome terminal settings backup (~/.gnome_terminal_settings_backup.txt)
-- git config (~/.gitconfig)
-- InelliJ IDEA settings (~/.config/JetBrains/IntelliJIdea2022.3/settings.zip)
-- vscode backup (~/.config/Code/User/sync)
 
 ### Install required commands
 ```bat
@@ -91,3 +80,23 @@ more details on https://the.exa.website/install/linux#manual
 ```bat
 restore-terminal-backup
 ```
+
+## Create bare Git repository
+
+###  What is a bare Git repository
+- its a way to store dotfiles
+- The technique consists in storing a Git bare repository in a "side" folder (like $HOME/.myconfig)
+- use alias "config" so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
+- more details on https://www.atlassian.com/git/tutorials/dotfiles
+
+### Setup new bare Git repository for config files (is not needed before cloning this repo)
+```bat
+# create a bare repo
+git init --bare $HOME/.myconfig
+# write the alias config to a shell config file, this alias acts like git  
+echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.bashrc
+config config --local status.showUntrackedFiles no
+# connect your repo to github.com
+git remote add <name> <url>
+```
+
