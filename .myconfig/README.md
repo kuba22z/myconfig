@@ -14,6 +14,8 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" 
 config config --local status.showUntrackedFiles no
 # connect your repo to github.com
 git remote add <name> <url>
+# For this repo:
+git remote add myconfig https://github.com/kuba22z/myconfig
 ```
 ### Install dotfiles onto a new system
 ```bat
