@@ -1,6 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -114,8 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export ALTERAOCLSDKROOT="/home/kuba/hld"
-
-export QSYS_ROOTDIR="/home/kuba/intelFPGA_lite/18.1/quartus/sopc_builder/bin"
-. "$HOME/.cargo/env"
