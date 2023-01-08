@@ -35,10 +35,17 @@ config checkout
 - bash (~/.bashrc)
 - nvim (~/.config/nvim)
 - powerlevel10k (~/.p10k.zsh)
+- gnome terminal settings backup (~/.gnome_terminal_settings_backup.txt)
+- git config (~/.gitconfig)
+- InelliJ IDEA settings (~/.config/JetBrains/IntelliJIdea2022.3/settings.zip)
+- vscode backup (~/.config/Code/User/sync)
 
-### Install required programms
+### Install required commands
 ```bat
 sudo apt-get update
+sudo apt install xdg-utils curl wget git-all
+sudo apt-get install zip locate
+
 ```
 #### zsh
 ```bat
@@ -70,11 +77,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 sudo apt-get autojump
 
 ```
-#### usefull commands
+#### exa
 ```bat
-sudo apt install xdg-utils curl wget git
-sudo apt-get install zip locate
-#exa
 sudo wget -P /usr/local/bin https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip && cd /usr/local/bin
 sudo unzip exa-linux-x86_64-v0.10.0.zip 
 sudo mv man /usr/share/man/man1 
