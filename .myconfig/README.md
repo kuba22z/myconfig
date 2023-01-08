@@ -10,6 +10,25 @@
 - InelliJ IDEA settings (~/.config/JetBrains/IntelliJIdea2022.3/settings.zip)
 - vscode backup (~/.config/Code/User/sync)
 
+## Create bare Git repository
+
+###  What is a bare Git repository
+- its a way to store dotfiles
+- The technique consists in storing a Git bare repository in a "side" folder (like $HOME/.myconfig)
+- use alias "config" so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
+- more details on https://www.atlassian.com/git/tutorials/dotfiles
+
+### Setup new bare Git repository for config files (is not needed before cloning this repo)
+```bat
+# create a bare repo
+git init --bare $HOME/.myconfig
+# write the alias config to a shell config file, this alias acts like git  
+echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.bashrc
+config config --local status.showUntrackedFiles no
+# connect your repo to github.com
+git remote add <name> <url>
+```
+
 ## Setup
 
 ### Clone my config repo to new system
@@ -91,24 +110,5 @@ more details on https://the.exa.website/install/linux#manual
 #### restore gnu terminal settings
 ```bat
 restore-terminal-backup
-```
-
-## Create bare Git repository
-
-###  What is a bare Git repository
-- its a way to store dotfiles
-- The technique consists in storing a Git bare repository in a "side" folder (like $HOME/.myconfig)
-- use alias "config" so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
-- more details on https://www.atlassian.com/git/tutorials/dotfiles
-
-### Setup new bare Git repository for config files (is not needed before cloning this repo)
-```bat
-# create a bare repo
-git init --bare $HOME/.myconfig
-# write the alias config to a shell config file, this alias acts like git  
-echo "alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.bashrc
-config config --local status.showUntrackedFiles no
-# connect your repo to github.com
-git remote add <name> <url>
 ```
 
