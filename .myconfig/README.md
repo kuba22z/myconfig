@@ -15,18 +15,14 @@ config config --local status.showUntrackedFiles no
 # connect your repo to github.com
 git remote add <name> <url>
 ```
-### Install dotfiles onto a new system
-```bat
-# create directory for bare repository
-cd
-mkdir .myconfig
-# clone dotfiles into bare repository 
- git clone --bare https://github.com/kuba22z/myconfig $HOME/.myconfig
-# Set alias config that acts like git
-alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
-```
+### Clone my config repo to new system
 - make sure that you rename/backup/remove all already exisiting dotfiles that are in the repo
+```bat 
+git clone --bare https://github.com/kuba22z/myconfig $HOME/.myconfig
+```
 ```bat
+# create alias config, this alias acts like git  
+alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
 # get all dotfiles from the repo
 config checkout
 ```
