@@ -59,6 +59,8 @@ alias zshu="source ~/.zshrc"
 alias nvimc="cd ~/.config/nvim/"
 alias p10kc="v ~/.p10k.zsh"
 alias youtube-dlc="nvim ~/.config/youtube-dl/config"
+# this alias I used instead of the regular git when we want to interact with our configuration repository.
+alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
 
 # working directories
 alias doc="~/Documents"
@@ -78,10 +80,18 @@ alias youtube-dl="~/.local/bin/youtube-dl"
 alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archive '~/Music/downloaded.txt' --no-post-overwrites -ciwx --extract-audio --audio-format mp3"
 # connect bluetooth to my headphone Doqaus
 alias condoqaus='bluetoothctl connect 22:22:22:88:4B:22'
-# this alias I used instead of the regular git when we want to interact with our configuration repository.
-alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
+
 alias backup-terminal='dconf dump /org/gnome/terminal/ > ~/.gnome_terminal_settings_backup.txt'
 alias restore-terminal-backup='dconf reset -f /org/gnome/terminal/ && dconf load /org/gnome/terminal/ < ~/.gnome_terminal_settings_backup.txt'
+alias manual-installed-packages="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
+
+#show all packages that are installed by snap
+# snap list  
+
+# find the directories node-modules in current directory (search also in subfolders)  
+#find . -type d -name node_modules -prune 
+# remove recursively all node_modules
+#find . -type d -name node_modules -prune -exec rm -rf {} \;
 
 #fh aachen
 
@@ -97,9 +107,6 @@ run-miniJavaFunProc(){ mini-java-funProc $1 && java miniJavaFunProcFile}
 run-parser(){  javacc javacc-config.jj && cat $2 && javac "$1.java" && java $1 < $2 }
 # compile my mini-java code in input.txt, translate it to Java byte code and runs the executable result.class file, $2 is the input File
 run-myJava(){run-parser $1 $2 && java result}
-# kryptologie
-alias aribas="~/aribas165/src/aribas" 
-
 
 # functions
 
@@ -148,18 +155,6 @@ hotkeys(){
      else 
    	v ~/Hotkeys/$1*
      fi
-}
-
-
-lvim_uninstall() {
-rm -rf ~/.local/share/lunarvim
-
-sudo rm /usr/local/bin/lvim
-
-rm -rf ~/.local/share/applications/lvim.desktop
-}
-lvim_install(){
-bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 }
 
 
