@@ -49,9 +49,9 @@ POWERLEVEL10K_MODE="nerdfont-complete"
 # My aliases
 
 # open IDE's
-alias i="/snap/intellij-idea-ultimate/current/bin/idea.sh"
-alias c="/snap/clion/current/bin/clion.sh"
-alias p="/snap/pycharm-professional/current/bin/pycharm.sh"
+alias intelliJ="/snap/intellij-idea-ultimate/current/bin/idea.sh"
+alias clion="/snap/clion/current/bin/clion.sh"
+alias pycharm="/snap/pycharm-professional/current/bin/pycharm.sh"
 
 # config files
 alias zshc="nvim ~/.zshrc"
@@ -118,19 +118,24 @@ mvc(){ mv $@ && cd ${@: -1}}
 
 # move files to the path that autojump finds
 mvj(){ 
-	pathTo2=$(autojump $2 | awk '{:t$1}');
-	mv $1 $pathTo && echo $pathTo
+	array=($@)
+	array_len=${#array[@]}
+	last_arg=${@: -1}
+	all_args_except_last=${array[@]:0:$array_len-1}
+
+	pathTo=$(autojump $last_arg | awk '{print$1}')
+        
+	mv $all_args_except_last $pathTo && echo $pathTo
 }
 # copy files to the path that autojump finds
-# ${@:1:$#-1} are all arguments except the last
 cpj(){ 
 	array=($@)
-	len=${#array[@]}
+	array_len=${#array[@]}
 	last_arg=${@: -1}
-	all_args_except_last=${array[@]:0:$len-1}
+	all_args_except_last=${array[@]:0:$array_len-1}
 	
 	pathTo=$(autojump $last_arg | awk '{print$1}') 
-	cp  $pathTo && echo $pathTo
+	cp $all_args_except_last $pathTo && echo $pathTo
 }
 
 
