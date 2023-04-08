@@ -86,9 +86,9 @@ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/powerlevel10k
 ```
 #### pulgins
 ```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-sudo apt-get install autojump
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sudo apt-get install autojump zsh-autosuggestions zsh-syntax-highlighting
 ```
 #### nerdfonts
 ```bash
