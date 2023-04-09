@@ -17,15 +17,12 @@ plugins=(git gitfast zsh-syntax-highlighting zsh-autosuggestions autojump npm su
 # required for autojump
 . /usr/share/autojump/autojump.sh
 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -34,9 +31,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 source ~/.profile
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kuba/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+
+# Should be before source, required for zsh-completions 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
+source ~/.config/zsh/completion.zsh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -69,7 +70,7 @@ alias .config="~/.config"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
 alias ls="exa --grid --color auto --icons --sort=type --git" 
-alias o="xdg-open"
+alias open="xdg-open"
 alias v="nvim"
 alias gsm="gnome-system-monitor"
 alias tp='trash-put'
@@ -98,7 +99,7 @@ alias manual-installed-packages="comm -23 <(apt-mark showmanual | sort -u) <(gzi
 # compiler bau
 # compiles file with mini-java compiler
 alias mini-javac='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJava-Compiler/miniJavaCompiler.jar <'
-alias mini-java-funProc='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJavaFunProc-Compiler/miniJavaFunProcCompiler.jar <'
+alias mini-java-funProc='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJavaFunProc-Compiler/miniJavaFunProcCompler.jar <'
 # compile and run with mini java compiler
 run-miniJava(){ mini-javac $1 && java miniJavaFile}
 # compiler and run with mini-java-funcPronc compiler
@@ -242,4 +243,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completioni
