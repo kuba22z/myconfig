@@ -90,18 +90,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sudo apt-get install autojump zsh-autosuggestions zsh-syntax-highlighting
 ```
 #### nerdfonts
-```bash
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-```
-Or:
-```bash
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "IBM 3270 Nerd Font Complete Mono.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/3270/Regular/complete/IBM%203270%20Nerd%20Font%20Complete%20Mono.otf 
-```
-- then click on Droid Sans Mono for Powerline Nerd Font Complete.otf
-- choose your font from https://github.com/ryanoasis/nerd-fonts an install it manually or clone the repo
-- exa require one of the nerdfonts to show everything correctly
+Go to https://www.nerdfonts.com/font-downloads and download a font of your choice 
+
+My recommendations
+
+For Windows: Caskaydia Cove Nerd Font
+- unzip the font, click on Caskaydia Cove Nerd Font Complete Windows Compatible Bold Italic.otf and install
+- go to windows terminal settings -> appearance and choose Caskaydia Cove NF 
+
+For Linxu: FiraCode Nerd Font
+- unzip the font, click on FiraCode.otf and install
+
+For Mac:
+
+exa require one of the nerdfonts to show icons correctly
 
 #### exa
 install older version of exa without bugs:
