@@ -3,5 +3,6 @@
 	name = kuba22z
 [core]
 	editor = nvim
+	bare = true
 [pull]
 	rebase = true
