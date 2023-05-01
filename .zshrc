@@ -64,21 +64,21 @@ alias youtube-dlc="nvim ~/.config/youtube-dl/config"
 alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
 
 # working directories
-alias doc="~/Documents"
-alias dl="~/Downloads"
+#alias doc="~/Documents"
+#alias dl="~/Downloads"
 alias .config="~/.config"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
 alias ls="exa --grid --color auto --icons --sort=type --git" 
 alias open="xdg-open"
 alias v="nvim"
-alias gsm="gnome-system-monitor"
+#alias gsm="gnome-system-monitor"
 alias tp='trash-put'
-alias rbox='rhythmbox'
+#alias rbox='rhythmbox'
 #download a youtube video
-alias youtube-dl="~/.local/bin/youtube-dl"
+#alias youtube-dl="~/.local/bin/youtube-dl"
 # download youtube video as mp3, duplicate downloaded videos are disallowed
-alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archive '~/Music/downloaded.txt' --no-post-overwrites -ciwx --extract-audio --audio-format mp3"
+#alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archive '~/Music/downloaded.txt' --no-post-overwrites -ciwx --extract-audio --audio-format mp3"
 # connect bluetooth to my headphone Doqaus
 alias condoqaus='bluetoothctl connect 22:22:22:88:4B:22'
 
@@ -153,7 +153,6 @@ beam()
         echo "no directory "$ldir;
     fi
 }
-
 # open key files
 hotkeys(){
      if [ -z "$1"]; then
@@ -161,6 +160,17 @@ hotkeys(){
      else 
    	v ~/Hotkeys/$1*
      fi
+}
+
+lvim_uninstall() {
+rm -rf ~/.local/share/lunarvim
+
+sudo rm /usr/local/bin/lvim
+
+rm -rf ~/.local/share/applications/lvim.desktop
+}
+lvim_install(){
+bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 }
 
 
