@@ -38,6 +38,11 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 source ~/.config/zsh/completion.zsh
+source ~/.config/zsh/windows-aliases.zsh 
+#source ~/.config/zsh/linux-aliases.zsh
+#source ~/.config/zsh/acer-aliases.zsh
+
+#execute batch files from linux
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -71,16 +76,13 @@ alias .config="~/.config"
 #overwrite ls with a modern ls "exa", it provides icons for files
 alias ls="exa --grid --color auto --icons --sort=type --git" 
 alias open="xdg-open"
-alias v="nvim"
-#alias gsm="gnome-system-monitor"
+alias vim="vi"
+alias vi="nvim"
 alias tp='trash-put'
-#alias rbox='rhythmbox'
 #download a youtube video
 #alias youtube-dl="~/.local/bin/youtube-dl"
 # download youtube video as mp3, duplicate downloaded videos are disallowed
 #alias youtube-dl-mp3="youtube-dl -o '~/Music/%(title)s.%(ext)s' --download-archive '~/Music/downloaded.txt' --no-post-overwrites -ciwx --extract-audio --audio-format mp3"
-# connect bluetooth to my headphone Doqaus
-alias condoqaus='bluetoothctl connect 22:22:22:88:4B:22'
 
 alias backup-terminal='dconf dump /org/gnome/terminal/ > ~/.gnome_terminal_settings_backup.txt'
 alias restore-terminal-backup='dconf reset -f /org/gnome/terminal/ && dconf load /org/gnome/terminal/ < ~/.gnome_terminal_settings_backup.txt'
@@ -93,21 +95,6 @@ alias manual-installed-packages="comm -23 <(apt-mark showmanual | sort -u) <(gzi
 #find . -type d -name node_modules -prune 
 # remove recursively all node_modules
 #find . -type d -name node_modules -prune -exec rm -rf {} \;
-
-#fh aachen
-
-# compiler bau
-# compiles file with mini-java compiler
-alias mini-javac='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJava-Compiler/miniJavaCompiler.jar <'
-alias mini-java-funProc='java -jar ~/Documents/CB/Praktikum/Praktikumsunterlagen/MiniJavaFunProc-Compiler/miniJavaFunProcCompler.jar <'
-# compile and run with mini java compiler
-run-miniJava(){ mini-javac $1 && java miniJavaFile}
-# compiler and run with mini-java-funcPronc compiler
-run-miniJavaFunProc(){ mini-java-funProc $1 && java miniJavaFunProcFile} 
-# run my parser/compiler on the code in input.txt
-run-parser(){  javacc javacc-config.jj && cat $2 && javac "$1.java" && java $1 < $2 }
-# compile my mini-java code in input.txt, translate it to Java byte code and runs the executable result.class file, $2 is the input File
-run-myJava(){run-parser $1 $2 && java result}
 
 # functions
 
