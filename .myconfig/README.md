@@ -35,7 +35,7 @@ git remote add <name> <url>
 - make sure that you rename/backup/remove all already exisiting dotfiles that are in the repo
 - when you dont generate ssh key then you have to follow this documentation: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 ```bash
-git clone --bare https://github.com/kuba22z/myconfig $HOME/.myconfig
+git clone --bare git@github.com:kuba22z/myconfig.git $HOME/.myconfig
 ```
 ```bash
 # create alias config, this alias acts like git  
