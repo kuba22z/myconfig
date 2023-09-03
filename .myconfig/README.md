@@ -83,12 +83,18 @@ nvim +'PlugInstall --sync' +qa
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
+For mac:
+```bash
+brew install romkatv/powerlevel10k/powerlevel10k
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+```
 #### pulgins
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 sudo apt-get install autojump zsh-autosuggestions zsh-syntax-highlighting
 ```
+
 #### nerdfonts
 Go to https://www.nerdfonts.com/font-downloads and download a font of your choice 
 
@@ -102,8 +108,12 @@ For Linxu: FiraCode Nerd Font
 - unzip the font, click on FiraCode.otf and install
 
 For Mac:
-
-exa require one of the nerdfonts to show icons correctly
+```bash
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code-nerd-font
+```
+And go to itermi2 preferences and change text font of your profile  
+see https://www.geekbits.io/how-to-install-nerd-fonts-on-mac/
 
 #### exa
 install older version of exa without bugs:
