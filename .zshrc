@@ -38,7 +38,8 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 source ~/.config/zsh/completion.zsh
-source ~/.config/zsh/windows-aliases.zsh 
+source ~/.config/zsh/git-scripts/scripts/bash/windows-aliases.sh
+source ~/.config/zsh/git-scripts/scripts/bash/ibalis-git-utils.sh
 #source ~/.config/zsh/linux-aliases.zsh
 #source ~/.config/zsh/acer-aliases.zsh
 
@@ -75,7 +76,6 @@ alias .config="~/.config"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
 alias ls="exa --grid --color auto --icons --sort=type --git" 
-alias open="xdg-open"
 alias vim="vi"
 alias vi="nvim"
 alias tp='trash-put'

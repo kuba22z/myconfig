@@ -4,5 +4,6 @@
 [core]
 	editor = nvim
 	bare = true
+	autocrlf = true
 [pull]
-	rebase = true
+	rebase = false
