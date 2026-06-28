@@ -1,0 +1,60 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "share": "disabled",
+  "model": "github-copilot/claude-opus-4.5",
+  "small_model": "github-copilot/claude-sonnet-4.5",
+  "disabled_providers": ["opencode"],
+  "plugin": [
+    "oh-my-openagent@latest"
+  ], 
+  "permission": {
+    "external_directory": "deny",
+    "websearch": "ask",
+    "bash": {
+      "*": "ask",
+
+      // ── Filesystem: destructive — DENY ──
+      "rm -rf*": "deny",
+      "rm -r /*": "deny",
+
+      // ── Read-only (safe, no side effects) ──
+      "ls *": "allow",
+      "cat *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "wc *": "allow",
+      "find *": "allow",
+      "which *": "allow",
+      "pwd": "allow",
+      "file *": "allow",
+      "echo *": "allow",
+      "touch *": "allow",
+      "mkdir *": "allow",
+      "grep *": "allow",
+
+      // ── Build / Test / Lint ──
+      "npx tsc *": "allow",
+      "npx vitest *": "allow",
+      "npm run build": "allow",
+      "npm run lint *": "allow",
+      "npm run test *": "allow",
+
+      // ── Git: read-only ──
+      "git status": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git branch*": "allow",
+      "git show*": "allow",
+      "git stash list*": "allow",
+      "git remote -v": "allow",
+
+      // ── Git: destructive — DENY ──
+      "git push --force*": "deny",
+      "git push -f*": "deny",
+      "git reset --hard*": "deny",
+      "git clean*": "deny",
+      "git checkout .": "deny",
+    },
+  },
+}

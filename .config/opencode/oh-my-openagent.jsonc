@@ -1,0 +1,71 @@
+{
+    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+    "agents": {
+        "sisyphus": {
+            "model": "github-copilot/claude-opus-4.6",
+            "variant": "high",
+            "description": "Pair programming: Complex tasks, shows thinking, coordinates agents"
+        },
+        "hephaestus": {
+            "model": "github-copilot/gpt-5.2-codex",
+            "variant": "medium",
+            "description": "Autonomous worker: Clear well-defined tasks, minimal chatter"
+        },
+        "prometheus": {
+            "model": "github-copilot/claude-opus-4.6",
+            "variant": "high",
+            "description": "Interactive planner: Press Tab, plan via interview, then /start-work"
+        },
+        "atlas": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "mode": "subagent"
+        },
+        "oracle": {
+            "model": "github-copilot/gpt-5.2"
+        },
+        "librarian": {
+            "model": "github-copilot/gemini-3-flash-preview"
+        },
+        "explore": {
+            "model": "github-copilot/grok-code-fast-1"
+        },
+        "multimodal-looker": {
+            "model": "github-copilot/gemini-3-flash-preview"
+        },
+        "metis": {
+            "model": "github-copilot/claude-opus-4.6"
+        },
+        "momus": {
+            "model": "github-copilot/gpt-5.2"
+        }
+    },
+    "categories": {
+        "visual-engineering": {
+            "model": "github-copilot/gemini-3-pro-preview",
+            "variant": "high"
+        },
+        "ultrabrain": {
+            "model": "github-copilot/gpt-5.2-codex"
+        },
+        "deep": {
+            "model": "github-copilot/gpt-5.2-codex",
+            "variant": "medium"
+        },
+        "artistry": {
+            "model": "github-copilot/gemini-3-pro-preview",
+            "variant": "high"
+        },
+        "quick": {
+            "model": "github-copilot/claude-haiku-4.5"
+        },
+        "unspecified-low": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "unspecified-high": {
+            "model": "github-copilot/claude-opus-4.6"
+        },
+        "writing": {
+            "model": "github-copilot/gemini-3-flash-preview"
+        }
+    }
+}

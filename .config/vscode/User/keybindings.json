@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "alt+d",
+        "command": "git.openFile",
+        "when": "editorFocus && isInDiffEditor"
+    },
+    {
+        "key": "alt+d",
+        "command": "git.openChange",
+        "when": "editorFocus && !isInDiffEditor"
+    }   
+]
