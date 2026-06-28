@@ -1,11 +1,3 @@
-#instant prompt prints prompt instantly upon Zsh startup allowing you to start typing while plugins are still loading.
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -15,7 +7,8 @@ fi
 plugins=(git gitfast zsh-syntax-highlighting zsh-autosuggestions autojump npm sudo web-search aliases jsontools)
 
 # required for autojump
-. /usr/share/autojump/autojump.sh
+# # mac doest find it
+#. /usr/share/autojump/autojump.sh
 
 # User configuration
 
@@ -26,9 +19,14 @@ plugins=(git gitfast zsh-syntax-highlighting zsh-autosuggestions autojump npm su
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# For Intellij in Mac
+export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"
 
 # Add exports from your profile
-source ~/.profile
+# mac doesnt find it
+#source ~/.profile
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -38,7 +36,7 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 source ~/.config/zsh/completion.zsh
-source ~/.config/zsh/windows-aliases.zsh 
+#source ~/.config/zsh/windows-aliases.zsh 
 #source ~/.config/zsh/linux-aliases.zsh
 #source ~/.config/zsh/acer-aliases.zsh
 
@@ -74,8 +72,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
 alias .config="~/.config"
 
 #overwrite ls with a modern ls "exa", it provides icons for files
-alias ls="exa --grid --color auto --icons --sort=type --git" 
-alias open="xdg-open"
+alias ls="eza --grid --color=auto --icons --sort=type --git" 
+#alias open="xdg-open"
 alias vim="vi"
 alias vi="nvim"
 alias tp='trash-put'
@@ -100,6 +98,12 @@ alias manual-installed-packages="comm -23 <(apt-mark showmanual | sort -u) <(gzi
 
 # command and go to it
 # ${@: -1} is the last argument, $@ are all arguments
+cbcopy() {
+	cat $1 | pbcopy
+}
+cbpaste() {
+	pbpaste > $1
+}
 mdc(){md $@ && cd ${@: -1}}
 cpc(){cp $@ && cd ${@: -1}}
 mvc(){ mv $@ && cd ${@: -1}}
@@ -159,6 +163,9 @@ rm -rf ~/.local/share/applications/lvim.desktop
 lvim_install(){
 bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 }
+
+
+#######
 
 
 # Set list of themes to pick from when loading at random
@@ -232,11 +239,13 @@ bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/mas
 #neccesary to start Laravel Installer from terminal 
 export PATH=/home/kuba/.config/composer/vendor/bin:$PATH
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# for windows or mac
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
+#for mac
+source /Users/jakubnaumowicz/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
